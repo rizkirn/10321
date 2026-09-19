@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://10321.rizkirn.my.id/sitemap-index.xml
