@@ -1,43 +1,41 @@
-# Astro Starter Kit: Minimal
+# 10·3·2·1
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Rutinitas sederhana untuk membantu mengatur aktivitas sebelum waktu tidur.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+10·3·2·1 menghitung jadwal berdasarkan waktu tidur yang dipilih:
 
-## 🚀 Project Structure
+- 10 jam sebelumnya: berhenti minum kafein
+- 3 jam sebelumnya: selesaikan makan
+- 2 jam sebelumnya: batasi minum
+- 1 jam sebelumnya: tinggalkan layar
+- Waktu tidur
 
-Inside of your Astro project, you'll see the following folders and files:
+Aktivitas dapat ditukar sesuai rutinitas masing-masing.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Calendar
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Jadwal dapat diekspor ke kalender sebagai file `.ics`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Tersedia tiga pilihan jadwal:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Sekali
+- Hari tertentu
+- Setiap hari
 
-## 🧞 Commands
+Setiap aktivitas dibuat sebagai event 15 menit dengan pengingat 30 menit sebelumnya.
 
-All commands are run from the root of the project, from a terminal:
+## Tech
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Astro
+- TypeScript
+- CSS
+- LocalStorage
+- iCalendar (`.ics`)
 
-## 👀 Want to learn more?
+Tidak memerlukan akun atau backend.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Development
+
+```bash
+npm install
+npm run dev
