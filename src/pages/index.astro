@@ -4,6 +4,7 @@ import '../styles/global.css';
 import SleepTimePicker from '../components/SleepTimePicker.astro';
 import RoutineList from '../components/RoutineList.astro';
 import SchedulePicker from '../components/SchedulePicker.astro';
+import ShareRoutine from '../components/ShareRoutine.astro';
 ---
 
 <!doctype html>
@@ -28,9 +29,20 @@ import SchedulePicker from '../components/SchedulePicker.astro';
 		/>
 
 		<!-- Open Graph -->
-		<meta property="og:type" content="website" />
-		<meta property="og:locale" content="id_ID" />
-		<meta property="og:site_name" content="10·3·2·1" />
+		<meta
+			property="og:type"
+			content="website"
+		/>
+
+		<meta
+			property="og:locale"
+			content="id_ID"
+		/>
+
+		<meta
+			property="og:site_name"
+			content="10·3·2·1"
+		/>
 
 		<meta
 			property="og:title"
@@ -104,7 +116,10 @@ import SchedulePicker from '../components/SchedulePicker.astro';
 		/>
 
 		<!-- Favicon -->
-		<link rel="icon" href="/favicon.ico" />
+		<link
+			rel="icon"
+			href="/favicon.ico"
+		/>
 
 		<!-- Fonts -->
 		<link
@@ -131,7 +146,9 @@ import SchedulePicker from '../components/SchedulePicker.astro';
 					rutinitas sebelum tidur
 				</p>
 
-				<h1>10·3·2·1</h1>
+				<h1>
+					10·3·2·1
+				</h1>
 
 				<p class="intro">
 					Atur kapan kamu mulai pelan-pelan berhenti dari aktivitas
@@ -143,7 +160,30 @@ import SchedulePicker from '../components/SchedulePicker.astro';
 
 			<RoutineList />
 
+			<section
+				class="about-routine"
+				aria-labelledby="about-routine-title"
+			>
+				<div class="section-heading">
+					<h2 id="about-routine-title">
+						Apa itu 10·3·2·1?
+					</h2>
+
+					<p class="about-routine-lead">
+						<strong>
+							10·3·2·1 membantu mengatur kapan kamu mulai membatasi aktivitas tertentu sebelum tidur.
+						</strong>
+					</p>
+
+					<p>
+						Angka 10, 3, 2, dan 1 menunjukkan jarak waktu sebelum tidur untuk mulai berhenti atau mengurangi aktivitas tersebut.
+					</p>
+				</div>
+			</section>
+
 			<SchedulePicker />
+
+			<ShareRoutine />
 
 			<footer>
 				<p>
@@ -155,6 +195,7 @@ import SchedulePicker from '../components/SchedulePicker.astro';
 		<script>
 			import '../scripts/routine';
 			import '../scripts/calendar';
+			import '../scripts/share';
 		</script>
 	</body>
 </html>
