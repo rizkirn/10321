@@ -1,0 +1,252 @@
+<section
+	class="calendar-schedule"
+	aria-labelledby="calendar-title"
+>
+	<div class="section-heading">
+		<h2 id="calendar-title">
+			Jadwal
+		</h2>
+
+		<p>
+			Pilih kapan rutinitas ini ingin kamu jalankan.
+		</p>
+	</div>
+
+	<div
+		class="schedule-modes"
+		aria-label="Jenis jadwal"
+	>
+		<button
+			type="button"
+			class="schedule-mode active"
+			data-mode="once"
+			aria-pressed="true"
+		>
+			Sekali
+		</button>
+
+		<button
+			type="button"
+			class="schedule-mode"
+			data-mode="weekly"
+			aria-pressed="false"
+		>
+			Hari tertentu
+		</button>
+
+		<button
+			type="button"
+			class="schedule-mode"
+			data-mode="daily"
+			aria-pressed="false"
+		>
+			Setiap hari
+		</button>
+	</div>
+
+	<div class="schedule-settings">
+
+		<!-- Sekali -->
+
+		<div
+			class="schedule-panel"
+			data-mode="once"
+		>
+			<label class="schedule-field">
+				<span>
+					Tanggal tidur
+				</span>
+
+				<input
+					id="schedule-date"
+					type="date"
+				/>
+			</label>
+		</div>
+
+		<!-- Hari tertentu -->
+
+		<div
+			class="schedule-panel"
+			data-mode="weekly"
+			hidden
+		>
+			<div class="schedule-field">
+				<span>
+					Pilih hari
+				</span>
+
+				<div
+					class="weekday-picker"
+					aria-label="Hari tidur"
+				>
+					<button
+						type="button"
+						class="weekday"
+						data-day="MO"
+						aria-pressed="false"
+					>
+						Sen
+					</button>
+
+					<button
+						type="button"
+						class="weekday"
+						data-day="TU"
+						aria-pressed="false"
+					>
+						Sel
+					</button>
+
+					<button
+						type="button"
+						class="weekday"
+						data-day="WE"
+						aria-pressed="false"
+					>
+						Rab
+					</button>
+
+					<button
+						type="button"
+						class="weekday"
+						data-day="TH"
+						aria-pressed="false"
+					>
+						Kam
+					</button>
+
+					<button
+						type="button"
+						class="weekday"
+						data-day="FR"
+						aria-pressed="false"
+					>
+						Jum
+					</button>
+
+					<button
+						type="button"
+						class="weekday"
+						data-day="SA"
+						aria-pressed="false"
+					>
+						Sab
+					</button>
+
+					<button
+						type="button"
+						class="weekday"
+						data-day="SU"
+						aria-pressed="false"
+					>
+						Min
+					</button>
+				</div>
+			</div>
+
+			<label class="schedule-field">
+				<span>
+					Mulai dari
+				</span>
+
+				<input
+					id="weekly-start-date"
+					type="date"
+				/>
+			</label>
+
+			<label class="schedule-field">
+				<span>
+					Durasi
+				</span>
+
+				<select id="weekly-duration">
+					<option value="7">
+						1 minggu
+					</option>
+
+					<option value="14">
+						2 minggu
+					</option>
+
+					<option value="28">
+						4 minggu
+					</option>
+
+					<option value="none">
+						Tanpa tanggal akhir
+					</option>
+				</select>
+			</label>
+		</div>
+
+		<!-- Setiap hari -->
+
+		<div
+			class="schedule-panel"
+			data-mode="daily"
+			hidden
+		>
+			<label class="schedule-field">
+				<span>
+					Mulai dari
+				</span>
+
+				<input
+					id="daily-start-date"
+					type="date"
+				/>
+			</label>
+
+			<label class="schedule-field">
+				<span>
+					Durasi
+				</span>
+
+				<select id="daily-duration">
+					<option value="7">
+						7 hari
+					</option>
+
+					<option value="14">
+						14 hari
+					</option>
+
+					<option value="30">
+						30 hari
+					</option>
+
+					<option value="none">
+						Tanpa tanggal akhir
+					</option>
+				</select>
+			</label>
+		</div>
+	</div>
+
+	<p class="calendar-note">
+		Setiap aktivitas akan dibuat sebagai event 15 menit
+		dengan pengingat 30 menit sebelumnya.
+	</p>
+
+	<button
+		id="add-calendar"
+		class="add-calendar"
+		type="button"
+	>
+		Tambahkan ke kalender
+	</button>
+
+	<p
+		id="calendar-status"
+		class="calendar-status"
+		aria-live="polite"
+		hidden
+	></p>
+
+	<p class="calendar-sync-note">
+		Jadwal yang sudah ditambahkan ke kalender tidak diperbarui otomatis jika rutinitas berubah.
+	</p>
+
+</section>

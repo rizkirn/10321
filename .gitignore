@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Astro generated files
+.astro/
+dist/
+
+# macOS
+.DS_Store
+
+# Local tooling
+.codex/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local AI instructions / development notes
+AGENTS.md
+CLAUDE.md
+antislop.md

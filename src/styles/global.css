@@ -1,0 +1,931 @@
+:root {
+	font-family: 'Nunito Sans', sans-serif;
+	color: #493f43;
+	background: #f8f1e8;
+	font-synthesis: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background: #f8f1e8;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	background: #f8f1e8;
+}
+
+button,
+input,
+select {
+	font: inherit;
+}
+
+button {
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* =========================
+   Page
+========================= */
+
+.page {
+	width: min(100% - 32px, 620px);
+	margin: 0 auto;
+	padding: 72px 0 40px;
+}
+
+/* =========================
+   Hero
+========================= */
+
+.hero {
+	text-align: center;
+}
+
+.kicker {
+	margin: 0 0 4px;
+	font-family: 'Gaegu', cursive;
+	font-size: 1.35rem;
+	font-weight: 700;
+	color: #a96872;
+}
+
+h1,
+h2 {
+	font-family: 'Gaegu', cursive;
+}
+
+h1 {
+	margin: 0;
+	font-size: clamp(4.5rem, 15vw, 6.8rem);
+	line-height: .88;
+	font-weight: 700;
+	letter-spacing: -.045em;
+	color: #5b4a52;
+}
+
+.intro {
+	max-width: 430px;
+	margin: 20px auto 0;
+	font-size: .98rem;
+	line-height: 1.65;
+	color: #786b70;
+}
+
+/* =========================
+   Sleep time
+========================= */
+
+.sleep-card {
+	position: relative;
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	margin-top: 40px;
+	padding: 20px 22px;
+	border: 1px solid #ead4d2;
+	border-radius: 18px;
+	background: #f3dedc;
+}
+
+.sleep-label {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+}
+
+.sleep-label label {
+	font-weight: 700;
+	color: #5d5055;
+}
+
+.sleep-label p {
+	margin: 0;
+	font-size: .72rem;
+	line-height: 1.3;
+	color: #9a858b;
+}
+
+/* =========================
+   Time input
+========================= */
+
+.time-picker {
+	position: relative;
+}
+
+.time-input-wrap {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+#sleep-time {
+	width: 132px;
+	height: 42px;
+	padding: 0 42px 0 13px;
+	border: 1px solid #d8b9bb;
+	border-radius: 12px;
+	outline: none;
+	background: #fffaf5;
+	color: #51454a;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	cursor: text;
+}
+
+#sleep-time:hover {
+	border-color: #cba5a9;
+}
+
+#sleep-time:focus {
+	border-color: #a96872;
+	box-shadow: 0 0 0 3px rgba(169, 104, 114, .12);
+}
+
+.time-picker-button {
+	position: absolute;
+	top: 50%;
+	right: 5px;
+	display: grid;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: #98747b;
+	place-items: center;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.time-picker-button:hover {
+	background: #f4e2e1;
+	color: #7d5961;
+}
+
+.time-picker-button:focus-visible {
+	outline: 2px solid #b97b84;
+	outline-offset: 1px;
+}
+
+.time-picker-button svg {
+	display: block;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+/* =========================
+   Time picker panel
+========================= */
+
+.time-picker-panel {
+	position: absolute;
+	top: calc(100% + 10px);
+	right: 0;
+	z-index: 100;
+	width: 230px;
+	padding: 17px;
+	border: 1px solid #e1c8c9;
+	border-radius: 16px;
+	background: #fffaf5;
+	box-shadow:
+		0 14px 32px rgba(91, 66, 76, .11),
+		0 2px 6px rgba(91, 66, 76, .05);
+}
+
+.time-picker-panel[hidden] {
+	display: none;
+}
+
+.time-picker-title {
+	margin: 0 0 13px;
+	font-family: 'Gaegu', cursive;
+	font-size: 1.45rem;
+	font-weight: 700;
+	line-height: 1;
+	text-align: center;
+	color: #675159;
+}
+
+.time-picker-controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+}
+
+.time-column {
+	display: grid;
+	grid-template-rows: 28px 48px 28px;
+	gap: 4px;
+	width: 64px;
+}
+
+.time-step {
+	display: grid;
+	width: 100%;
+	padding: 0;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: #a27c83;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1;
+	place-items: center;
+	cursor: pointer;
+}
+
+.time-step:hover {
+	background: #f4e2e1;
+	color: #79565e;
+}
+
+.time-step:active {
+	background: #ecd4d4;
+}
+
+.time-step:focus-visible {
+	outline: 2px solid #b97b84;
+	outline-offset: 1px;
+}
+
+.time-part {
+	width: 64px;
+	height: 48px;
+	padding: 0;
+	border: 1px solid #e1ceca;
+	border-radius: 11px;
+	outline: none;
+	background: #f9eee8;
+	color: #59484f;
+	font-family: 'Gaegu', cursive;
+	font-size: 1.75rem;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	text-align: center;
+}
+
+.time-part:focus {
+	border-color: #b97b84;
+	background: #fffaf5;
+	box-shadow: 0 0 0 3px rgba(169, 104, 114, .1);
+}
+
+.time-separator {
+	margin-top: 1px;
+	color: #806970;
+	font-family: 'Gaegu', cursive;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.time-picker-done {
+	width: 100%;
+	margin-top: 14px;
+	padding: 9px 14px;
+	border: 1px solid #d5aeb2;
+	border-radius: 10px;
+	background: #efd0d2;
+	color: #68484f;
+	font-size: .84rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.time-picker-done:hover {
+	background: #e9c4c7;
+}
+
+.time-picker-done:active {
+	background: #e3babe;
+}
+
+.time-picker-done:focus-visible {
+	outline: 2px solid #a96872;
+	outline-offset: 2px;
+}
+
+/* =========================
+   Shared section heading
+========================= */
+
+.section-heading {
+	margin-bottom: 18px;
+}
+
+.section-heading h2 {
+	margin: 0;
+	font-size: 2.2rem;
+	line-height: 1;
+	color: #5b4a52;
+}
+
+.section-heading p {
+	margin: 7px 0 0;
+	font-size: .87rem;
+	line-height: 1.5;
+	color: #897b80;
+}
+
+/* =========================
+   Routine schedule
+========================= */
+
+.schedule {
+	position: relative;
+	z-index: 1;
+	margin-top: 42px;
+}
+
+/* =========================
+   Routine
+========================= */
+
+.routine {
+	display: grid;
+	gap: 10px;
+}
+
+.routine-item {
+	display: grid;
+	grid-template-columns: 70px minmax(0, 1fr) auto 20px;
+	align-items: center;
+	gap: 12px;
+	width: 100%;
+	min-height: 72px;
+	margin: 0;
+	padding: 12px 16px;
+	border: 1px solid #e7ddd6;
+	border-radius: 16px;
+	background: #fffaf3;
+	color: inherit;
+	text-align: left;
+}
+
+button.routine-item {
+	appearance: none;
+	cursor: grab;
+	touch-action: none;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	-webkit-touch-callout: none;
+	transition:
+		border-color 140ms ease,
+		background 140ms ease,
+		opacity 140ms ease;
+}
+
+button.routine-item:nth-child(even) {
+	background: #f1edf2;
+}
+
+button.routine-item:hover {
+	border-color: #d7c2c3;
+}
+
+button.routine-item:active {
+	cursor: grabbing;
+}
+
+button.routine-item:focus-visible {
+	outline: 3px solid rgba(169, 104, 114, .22);
+	outline-offset: 2px;
+}
+
+.routine-item.selected {
+	border-color: #c8848d;
+	background: #f5dfe0 !important;
+}
+
+.routine-item.drag-source {
+	opacity: .25;
+}
+
+.routine-item.drag-over {
+	border-color: #c8848d;
+	background: #f5dfe0 !important;
+}
+
+.routine-time {
+	font-family: 'Gaegu', cursive;
+	font-size: 1.65rem;
+	font-weight: 700;
+	line-height: 1;
+	color: #66535b;
+}
+
+.routine-activity {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	min-width: 0;
+}
+
+.activity-icon {
+	display: flex;
+	flex: 0 0 32px;
+	width: 32px;
+	height: 32px;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.activity-icon img {
+	display: block;
+	width: 32px;
+	height: 32px;
+	max-width: 32px;
+	max-height: 32px;
+	object-fit: contain;
+	pointer-events: none;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+.activity-text {
+	min-width: 0;
+	font-size: .94rem;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.routine-offset {
+	white-space: nowrap;
+	font-size: .77rem;
+	font-weight: 700;
+	color: #9a858b;
+}
+
+.drag-handle {
+	font-size: 1.15rem;
+	line-height: 1;
+	color: #b19fa4;
+	text-align: center;
+}
+
+/* =========================
+   Touch interaction
+========================= */
+
+@media (pointer: coarse) {
+	button.routine-item {
+		touch-action: pan-y;
+	}
+
+	.drag-handle {
+		display: grid;
+		width: 36px;
+		height: 44px;
+		margin: -10px -10px -10px -8px;
+		place-items: center;
+		touch-action: none;
+		cursor: grab;
+	}
+}
+
+/* =========================
+   Bedtime
+========================= */
+
+.bedtime {
+	grid-template-columns: 70px minmax(0, 1fr);
+	margin-top: 6px;
+	border-color: #d9aeb2;
+	background: #efd0d2;
+	cursor: default;
+}
+
+.bedtime .routine-time {
+	color: #7d5159;
+}
+
+.bedtime .activity-text {
+	color: #68484f;
+}
+
+/* =========================
+   Drag ghost
+========================= */
+
+.drag-ghost {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	margin: 0;
+	pointer-events: none;
+	will-change: transform;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	box-shadow: 0 10px 24px rgba(91, 66, 76, .14);
+}
+
+/* =========================
+   Routine helper
+========================= */
+
+.status {
+	min-height: 1.4em;
+	margin: 13px 4px 0;
+	font-size: .8rem;
+	color: #93858a;
+}
+
+.reset-routine {
+	display: block;
+	margin: 8px 0 0 auto;
+	padding: 4px 2px;
+	border: 0;
+	background: transparent;
+	color: #9a858b;
+	font-size: .75rem;
+	font-weight: 600;
+	text-decoration: underline;
+	text-decoration-color: #cfbfc1;
+	text-underline-offset: 3px;
+	cursor: pointer;
+}
+
+.reset-routine:hover {
+	color: #7d6269;
+	text-decoration-color: #a98289;
+}
+
+.reset-routine:focus-visible {
+	outline: 2px solid #b97b84;
+	outline-offset: 3px;
+	border-radius: 3px;
+}
+
+/* =========================
+   Calendar schedule
+========================= */
+
+.calendar-schedule {
+	position: relative;
+	z-index: 1;
+	margin-top: 42px;
+	padding-top: 32px;
+	border-top: 1px solid #e6dbd2;
+}
+
+/* =========================
+   Schedule modes
+========================= */
+
+.schedule-modes {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 5px;
+	padding: 5px;
+	border: 1px solid #e7d8d4;
+	border-radius: 14px;
+	background: #f3ebe3;
+}
+
+.schedule-mode {
+	min-width: 0;
+	padding: 9px 10px;
+	border: 0;
+	border-radius: 10px;
+	background: transparent;
+	color: #958288;
+	font-size: .76rem;
+	font-weight: 700;
+	line-height: 1.25;
+	cursor: pointer;
+	transition:
+		background 150ms ease,
+		color 150ms ease;
+}
+
+.schedule-mode:hover {
+	color: #705d63;
+}
+
+.schedule-mode.active {
+	background: #efd0d2;
+	color: #72545b;
+}
+
+.schedule-mode:focus-visible {
+	outline: 2px solid #b97b84;
+	outline-offset: 2px;
+}
+
+/* =========================
+   Schedule settings
+========================= */
+
+.schedule-settings {
+	margin-top: 16px;
+}
+
+.schedule-panel {
+	display: grid;
+	gap: 15px;
+	padding: 18px;
+	border: 1px solid #e7ddd6;
+	border-radius: 16px;
+	background: #fffaf3;
+}
+
+.schedule-panel[hidden] {
+	display: none;
+}
+
+.schedule-field {
+	display: grid;
+	gap: 7px;
+}
+
+.schedule-field > span {
+	color: #7d6b71;
+	font-size: .76rem;
+	font-weight: 700;
+}
+
+.schedule-field input,
+.schedule-field select {
+	width: 100%;
+	height: 42px;
+	padding: 0 12px;
+	border: 1px solid #ddceca;
+	border-radius: 11px;
+	outline: none;
+	background: #fffdf9;
+	color: #594c51;
+	font-size: .84rem;
+	font-weight: 600;
+}
+
+.schedule-field input:focus,
+.schedule-field select:focus {
+	border-color: #b97b84;
+	box-shadow: 0 0 0 3px rgba(169, 104, 114, .1);
+}
+
+/* =========================
+   Weekday picker
+========================= */
+
+.weekday-picker {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 5px;
+}
+
+.weekday {
+	min-width: 0;
+	height: 38px;
+	padding: 0 4px;
+	border: 1px solid #e2d4d0;
+	border-radius: 9px;
+	background: #f8f0e9;
+	color: #8b777d;
+	font-size: .7rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		border-color 150ms ease,
+		background 150ms ease,
+		color 150ms ease;
+}
+
+.weekday:hover {
+	border-color: #d5babe;
+	color: #705d63;
+}
+
+.weekday.active,
+.weekday[aria-pressed='true'] {
+	border-color: #d3a9ad;
+	background: #efd0d2;
+	color: #72545b;
+}
+
+.weekday:focus-visible {
+	outline: 2px solid #b97b84;
+	outline-offset: 2px;
+}
+
+/* =========================
+   Calendar action
+========================= */
+
+.calendar-note {
+	margin: 13px 3px 0;
+	color: #95868a;
+	font-size: .74rem;
+	line-height: 1.55;
+}
+
+.add-calendar {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	margin-top: 18px;
+	padding: 13px 18px;
+	border: 1px solid #d9aeb2;
+	border-radius: 14px;
+	background: #efd0d2;
+	color: #68484f;
+	font-size: .82rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		transform 150ms ease,
+		background 150ms ease;
+}
+
+.add-calendar:hover {
+	background: #e9c3c7;
+}
+
+.add-calendar:active {
+	transform: scale(.99);
+}
+
+.add-calendar:focus-visible {
+	outline: 2px solid #b97b84;
+	outline-offset: 3px;
+}
+
+.calendar-status {
+	margin: 14px 0 0;
+	padding: 12px 14px;
+	border: 1px solid #b9d8bd;
+	border-radius: 14px;
+	background: #e8f3e8;
+	color: #4f6953;
+	font-size: 0.9rem;
+	font-weight: 700;
+	line-height: 1.45;
+	text-align: center;
+}
+
+.calendar-sync-note {
+	margin: 10px auto 0;
+	max-width: 460px;
+	font-size: 0.78rem;
+	line-height: 1.45;
+	text-align: center;
+	opacity: 0.65;
+}
+
+.calendar-status[hidden] {
+	display: none;
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+	margin-top: 48px;
+	padding-top: 20px;
+	border-top: 1px solid #e6dbd2;
+}
+
+footer p {
+	margin: 0;
+	font-size: .76rem;
+	line-height: 1.6;
+	color: #9a8d91;
+	text-align: center;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 480px) {
+	.page {
+		width: min(100% - 24px, 620px);
+		padding-top: 48px;
+	}
+
+	.sleep-card {
+		gap: 14px;
+		margin-top: 32px;
+		padding: 17px 16px;
+	}
+
+	.sleep-label {
+		min-width: 0;
+	}
+
+	.sleep-label label {
+		font-size: .9rem;
+	}
+
+	.sleep-label p {
+		font-size: .67rem;
+	}
+
+	#sleep-time {
+		width: 120px;
+	}
+
+	.time-picker-panel {
+		right: 0;
+		width: 220px;
+	}
+
+	.routine-item {
+		grid-template-columns: 58px minmax(0, 1fr) auto 16px;
+		gap: 8px;
+		min-height: 68px;
+		padding: 11px 12px;
+	}
+
+	.routine-time {
+		font-size: 1.45rem;
+	}
+
+	.routine-activity {
+		gap: 8px;
+	}
+
+	.activity-icon {
+		flex-basis: 27px;
+		width: 27px;
+		height: 27px;
+	}
+
+	.activity-icon img {
+		width: 27px;
+		height: 27px;
+		max-width: 27px;
+		max-height: 27px;
+	}
+
+	.activity-text {
+		font-size: .84rem;
+	}
+
+	.routine-offset {
+		font-size: .7rem;
+	}
+
+	.bedtime {
+		grid-template-columns: 58px minmax(0, 1fr);
+	}
+
+	.calendar-schedule {
+		margin-top: 36px;
+		padding-top: 28px;
+	}
+
+	.schedule-mode {
+		padding: 9px 5px;
+		font-size: .7rem;
+	}
+
+	.schedule-panel {
+		padding: 15px;
+	}
+
+	.weekday-picker {
+		gap: 4px;
+	}
+
+	.weekday {
+		height: 36px;
+		padding: 0 2px;
+		font-size: .65rem;
+	}
+}
+
+/* =========================
+   Reduced motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+	button.routine-item,
+	.schedule-mode,
+	.weekday,
+	.add-calendar {
+		transition: none;
+	}
+}

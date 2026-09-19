@@ -1,0 +1,150 @@
+<section
+	class="sleep-card"
+	aria-labelledby="sleep-label"
+>
+	<div class="sleep-label">
+		<label
+			id="sleep-label"
+			for="sleep-time"
+		>
+			Aku mau tidur pukul
+		</label>
+
+		<p>Pilih atau ketik waktunya</p>
+	</div>
+
+	<div class="time-picker">
+		<div class="time-input-wrap">
+			<input
+				id="sleep-time"
+				type="text"
+				inputmode="numeric"
+				value="22:00"
+				maxlength="5"
+				autocomplete="off"
+				aria-label="Waktu tidur"
+				aria-haspopup="dialog"
+				aria-expanded="false"
+			/>
+
+			<button
+				id="time-picker-button"
+				class="time-picker-button"
+				type="button"
+				aria-label="Pilih waktu tidur"
+				aria-expanded="false"
+				aria-controls="time-picker-panel"
+			>
+				<svg
+					viewBox="0 0 24 24"
+					width="18"
+					height="18"
+					aria-hidden="true"
+				>
+					<circle
+						cx="12"
+						cy="12"
+						r="8.5"
+					></circle>
+
+					<path
+						d="M12 7.5v5l3.5 2"
+					></path>
+				</svg>
+			</button>
+		</div>
+
+		<div
+			id="time-picker-panel"
+			class="time-picker-panel"
+			role="dialog"
+			aria-label="Pilih waktu tidur"
+			hidden
+		>
+			<p class="time-picker-title">
+				Waktu tidur
+			</p>
+
+			<div class="time-picker-controls">
+				<div class="time-column">
+					<button
+						class="time-step"
+						type="button"
+						data-part="hour"
+						data-direction="1"
+						aria-label="Tambah jam"
+					>
+						↑
+					</button>
+
+					<input
+						id="picker-hour"
+						class="time-part"
+						type="text"
+						inputmode="numeric"
+						maxlength="2"
+						value="22"
+						aria-label="Jam"
+					/>
+
+					<button
+						class="time-step"
+						type="button"
+						data-part="hour"
+						data-direction="-1"
+						aria-label="Kurangi jam"
+					>
+						↓
+					</button>
+				</div>
+
+				<span
+					class="time-separator"
+					aria-hidden="true"
+				>
+					:
+				</span>
+
+				<div class="time-column">
+					<button
+						class="time-step"
+						type="button"
+						data-part="minute"
+						data-direction="1"
+						aria-label="Tambah menit"
+					>
+						↑
+					</button>
+
+					<input
+						id="picker-minute"
+						class="time-part"
+						type="text"
+						inputmode="numeric"
+						maxlength="2"
+						value="00"
+						aria-label="Menit"
+					/>
+
+					<button
+						class="time-step"
+						type="button"
+						data-part="minute"
+						data-direction="-1"
+						aria-label="Kurangi menit"
+					>
+						↓
+					</button>
+				</div>
+			</div>
+
+			<button
+				id="time-picker-done"
+				class="time-picker-done"
+				type="button"
+			>
+				Selesai
+			</button>
+		</div>
+	</div>
+</section>
